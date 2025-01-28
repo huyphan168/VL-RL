@@ -79,13 +79,16 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
 
 ## Getting Started
 
+1. Install packages and prepare the initial checkpoints (optional).
+2. 
+
 ## Citation
 
 If you find this project useful for your research and applications, please cite using this BibTeX:
 ```bibtex
 @misc{chu2025sft,
       title={SFT Memorizes, RL Generalizes: A Comparative Study of Foundation Model Post-training}, 
-      author={Tianzhe Chu, Yuexiang Zhai, },
+      author={Tianzhe Chu, Yuexiang Zhai, Jihan Yang, Shengbang Tong, Saining Xie, Dale Schuurmans, Quoc V. Le, Sergey Levine, Yi Ma},
       year={2025},
       eprint={TBD},
 }
@@ -94,13 +97,6 @@ If you find this project useful for your research and applications, please cite 
 ## Acknowledgement
 
 - [RL4VLM](https://github.com/RL4VLM/RL4VLM): We start our codebase from Simon's amazing project.
-- [Llama-3.2-Vision-Instruct](meta-llama/Llama-3.2-11B-Vision-Instruct): We instantiate our experiments on top of this model.
+- [Llama-3.2-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): We instantiate our experiments on top of this model.
 - [V-IRL: Grounding Virtual Intelligence in Real Life](https://virl-platform.github.io/): We adopt this fantastic environment.
-
-
-
-
-## License
-
-[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/cambrian-mllm/cambrian/blob/main/LICENSE)<br>
-**Usage and License Notices**: This project utilizes certain datasets and checkpoints that are subject to their respective original licenses. Users must comply with all terms and conditions of these original licenses, including but not limited to the [OpenAI Terms of Use](https://openai.com/policies/terms-of-use) for the dataset and the specific licenses for base language models for checkpoints trained using the dataset (e.g. [Llama community license](https://ai.meta.com/llama/license/) for LLaMA-3, and Vicuna-1.5). This project does not impose any additional constraints beyond those stipulated in the original licenses. Furthermore, users are reminded to ensure that their use of the dataset and checkpoints is in compliance with all applicable laws and regulations.
+- [Llama-3.2-Vision-Finetune](https://github.com/2U1/Llama3.2-Vision-Finetune): We conduct supervised-finetuning experiments adapting code from this repository.
