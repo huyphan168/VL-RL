@@ -41,11 +41,6 @@
 ## Release
 - [01/28/25] Excited to shout out our paper *SFT Memorizes, RL Generalizes*! We release the environments, training scripts, evaluation scripts, SFT data, and initial checkpoints.
 
-## Contents
-- [Installation](#installation)
-- [Train](#train)
-- [Evaluation](#evaluation)
-
 ## Installation
 
 ### Prepare
@@ -68,19 +63,38 @@ cd ..
 ```
 
 ### Download Initial Checkpoints (Optional)
-We instantiate RL experiments on top of SFT initialized checkpoints to guarantee model's basic instruction following capabilities. We provide all 4 initial checkpoints for \{GeneralPoints, V-IRL\}$$\times$$\{Language (-L), Vision-Language (-VL)\}. 
+We instantiate RL experiments on top of SFT initialized checkpoints to guarantee model's basic instruction following capabilities. We provide all 4 initial checkpoints for \{GeneralPoints, V-IRL\}X\{Language (-L), Vision-Language (-VL)\}. 
 ```Shell
 huggingface-cli download tianzhechu/GP-L-Init --local-dir YOUR_LOCAL_DIR
 huggingface-cli download tianzhechu/GP-VL-Init --local-dir YOUR_LOCAL_DIR
+huggingface-cli download tianzhechu/VIRL-L-Init --local-dir YOUR_LOCAL_DIR
 huggingface-cli download tianzhechu/VIRL-VL-Init --local-dir YOUR_LOCAL_DIR
-huggingface-cli download tianzhechu/GP-VL-Init --local-dir YOUR_LOCAL_DIR
 ```
 It's optional to download these checkpoints via huggingface CLI. You may directly specify <code>repo_name</code> as <code>CKPT_NAME</code> in shell scripts.
 
 ## Getting Started
 
 1. Install packages and prepare the initial checkpoints (optional).
-2. 
+   - Check [here](https://huggingface.co/collections/tianzhechu/sftvsrl-models-and-data-6797ba6de522c7de7fcb80ba) to download initial checkpoints for all 4 training experiments.
+   - You may train your own initial checkpoints. We will release data and SFT scripts soon.
+2. Launch reinforcement learning experiments (PPO).
+   - For GeneralPoints, please use execute the following scripts:
+     - Language only: <code>bash scripts/gp_training/language_train.sh</code>
+     - With vision: <code>bash scripts/gp_training/vl_train.sh</code>
+     - Edit training configs either in shell scripts or <code>rl/configs/llama_gp_*.yaml</code>
+   - For V-IRL, please do the following steps:
+     - First, download data from [here](tianzhechu/SFTvsRL_Data).
+     - Then, specify paths in training shell scripts
+       - <code>--env_config.platform_cfg.OFFLINE.PANORAMA_DIR=YOUR_PATH/nyc_streetviews</code>
+       - <code>--env_config.platform_cfg.OFFLINE.GPS_TO_PANO_PATH=YOUR_PATH/nyc.pkl</code>
+       - <code>--env_config.route_info_path=YOUR_PATH/nyc_routes</code>
+     - Finally, start training
+       - Language only: <code>bash scripts/virl_training/language_train.sh</code>
+       - With vision: <code>bash scripts/virl_training/vl_train.sh</code>
+   - We have a series of evaluation scripts:
+     - <code>scripts/gp_evaluation/*.sh</code>: evaluate GeneralPoints
+     - <code>scripts/virl_evaluation/*.sh</code>: evaluate V-IRL
+     - <code>scripts/recog_evaluation/*.sh</code>: evaluate GeneralPoints recognition
 
 ## Citation
 
