@@ -68,7 +68,7 @@ cd ..
 ```
 
 ### Download Initial Checkpoints (Optional)
-We instantiate RL experiments on top of SFT initialized checkpoints to guarantee model's basic instruction following capabilities. We provide all 4 initial checkpoints for \{GeneralPoints, V-IRL\}$\times$\{Language (-L), Vision-Language (-VL)\}. 
+We instantiate RL experiments on top of SFT initialized checkpoints to guarantee model's basic instruction following capabilities. We provide all 4 initial checkpoints for \{GeneralPoints, V-IRL\}$$\times$$\{Language (-L), Vision-Language (-VL)\}. 
 ```Shell
 huggingface-cli download tianzhechu/GP-L-Init --local-dir YOUR_LOCAL_DIR
 huggingface-cli download tianzhechu/GP-VL-Init --local-dir YOUR_LOCAL_DIR
@@ -81,11 +81,11 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
 
 ## Citation
 
-If you find Cambrian useful for your research and applications, please cite using this BibTeX:
+If you find this project useful for your research and applications, please cite using this BibTeX:
 ```bibtex
 @misc{chu2025sft,
       title={SFT Memorizes, RL Generalizes: A Comparative Study of Foundation Model Post-training}, 
-      author={Tianzhe Chu, },
+      author={Tianzhe Chu, Yuexiang Zhai, },
       year={2025},
       eprint={TBD},
 }
@@ -93,17 +93,10 @@ If you find Cambrian useful for your research and applications, please cite usin
 
 ## Acknowledgement
 
-- [LLaVA](https://github.com/haotian-liu/LLaVA): We start from codebase from the amazing LLaVA
-- [Vicuna](https://github.com/lm-sys/FastChat): We thank Vicuna for the initial codebase in LLM and the open-source LLM checkpoitns
-- [LLaMA](https://github.com/meta-llama/llama3): We thank LLaMA for continuing contribution to the open-source community and providing LLaMA-3 checkpoints.
-- [Yi](https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B): We thank Yi for opensourcing very powerful 34B model. 
+- [RL4VLM](https://github.com/RL4VLM/RL4VLM): We start our codebase from Simon's amazing project.
+- [Llama-3.2-Vision-Instruct](meta-llama/Llama-3.2-11B-Vision-Instruct): We instantiate our experiments on top of this model.
+- [V-IRL: Grounding Virtual Intelligence in Real Life](https://virl-platform.github.io/): We adopt this fantastic environment.
 
-
-
-## Related Projects
-- [Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LLMs](https://tsb0601.github.io/mmvp_blog/)
-- [V*: Guided Visual Search as a Core Mechanism in Multimodal LLMs](https://vstar-seal.github.io/)
-- [V-IRL: Grounding Virtual Intelligence in Real Life](https://virl-platform.github.io/)
 
 
 
