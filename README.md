@@ -1,8 +1,7 @@
-# *SFT Memorizes, RL Generalizes*: 
-
-## A Comparative Study of Foundation Model Post-training
 
 <div align="center">
+
+# *SFT Memorizes, RL Generalizes*: <br>A Comparative Study of Foundation Model Post-training
 
 <p>
     <img src="assets/teaser.png" alt="Cambrian" width="500" height="auto">
