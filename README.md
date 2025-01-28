@@ -36,7 +36,7 @@
 </div>
 
 
-> *Misc: We prompt DALLE-3 via "Conceptual figure of 'SFT Memorizes, RL Generalizes', with trendlines and style of Hong Kong", though Hong Kong-style skyscrapers dominates.*
+> *Misc: We prompt DALL-E 3 via "Conceptual figure of 'SFT Memorizes, RL Generalizes', with trendlines and style of Hong Kong" but somehow skycrapters dominate the picture...*
 
 ## Release
 - [01/28/25] Excited to shout out our paper *SFT Memorizes, RL Generalizes*! We release the environments, training scripts, evaluation scripts, SFT data, and initial checkpoints.
