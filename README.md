@@ -20,7 +20,7 @@
     <img alt="HF Model: Cambrian-1" src="https://img.shields.io/badge/%F0%9F%A4%97%20_Model-Checkpoints&Data-ffc107?color=ffc107&logoColor=white" height="25" />
 </a>
 
-</div>
+
 <div style="font-family: charter; text-align: center; margin: 0 auto;">
                     <a href="https://tianzhechu.com/" class="author-link" target="_blank">Tianzhe Chu*</a> &emsp;
                     <a href="https://yx-s-z.github.io/" class="author-link" target="_blank">Yuexiang Zhai*</a> &emsp;
@@ -33,8 +33,8 @@
                     <a href="https://people.eecs.berkeley.edu/~svlevine/" class="author-link" target="_blank">Sergey Levine</a> &emsp;
                     <a href="https://people.eecs.berkeley.edu/~yima/" class="author-link" target="_blank">Yi Ma</a> &emsp;
 </div>
-
-
+<br>
+</div>
 
 
 > *Misc: We prompt DALLE-3 via "Conceptual figure of 'SFT Memorizes, RL Generalizes', with trendlines and style of Hong Kong", though Hong Kong-style skyscrapers dominates.*
