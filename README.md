@@ -98,5 +98,6 @@ If you find this project useful for your research and applications, please cite 
 
 - [RL4VLM](https://github.com/RL4VLM/RL4VLM): We start our codebase from Simon's amazing project.
 - [Llama-3.2-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct): We instantiate our experiments on top of this model.
+- [Llama-3.2-Vision-Finetune](https://github.com/2U1/Llama3.2-Vision-Finetune): Our SFT code is modified from early version of this repository.
 - [V-IRL: Grounding Virtual Intelligence in Real Life](https://virl-platform.github.io/): We adopt this fantastic environment.
-- [Llama-3.2-Vision-Finetune](https://github.com/2U1/Llama3.2-Vision-Finetune): We conduct supervised-finetuning experiments adapting code from this repository.
+
