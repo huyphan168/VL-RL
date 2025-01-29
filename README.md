@@ -39,6 +39,7 @@
 > *Misc: We prompt DALL-E 3 via "Conceptual figure of 'SFT Memorizes, RL Generalizes', with trendlines and style of Hong Kong" but somehow skycrapters dominate the picture...*
 
 ## Release
+- [01/29/25] We are updating this repository. Scripts on GeneralPoints are ready so far.
 - [01/28/25] Excited to shout out our paper *SFT Memorizes, RL Generalizes*! We release the environments, training scripts, evaluation scripts, SFT data, and initial checkpoints.
 
 ## Installation
@@ -77,7 +78,7 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
 1. Install packages and prepare the initial checkpoints (optional).
    - Check [here](https://huggingface.co/collections/tianzhechu/sftvsrl-models-and-data-6797ba6de522c7de7fcb80ba) to download initial checkpoints for all 4 training experiments.
    - You may train your own initial checkpoints. We will release data and SFT scripts soon.
-2. Launch reinforcement learning experiments (PPO).
+2. Launch RL experiments (PPO).
    - For GeneralPoints, please use execute the following scripts:
      - Language only: <code>bash scripts/gp_training/language_train.sh</code>
      - With vision: <code>bash scripts/gp_training/vl_train.sh</code>
@@ -91,10 +92,12 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
      - Finally, start training
        - Language only: <code>bash scripts/virl_training/language_train.sh</code>
        - With vision: <code>bash scripts/virl_training/vl_train.sh</code>
-   - We have a series of evaluation scripts:
-     - <code>scripts/gp_evaluation/*.sh</code>: evaluate GeneralPoints
-     - <code>scripts/virl_evaluation/*.sh</code>: evaluate V-IRL
-     - <code>scripts/recog_evaluation/*.sh</code>: evaluate GeneralPoints recognition
+3. Evaluate RL checkpoints after training.
+  - We have a series of evaluation scripts:
+    - <code>scripts/gp_evaluation/*.sh</code>: evaluate GeneralPoints
+    - <code>scripts/virl_evaluation/*.sh</code>: evaluate V-IRL
+    - <code>scripts/recog_evaluation/*.sh</code>: evaluate GeneralPoints recognition
+  - Please modify <code>CKPT_NAME</code> in these shell scripts.
 
 ## Citation
 
