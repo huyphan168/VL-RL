@@ -104,11 +104,14 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
 
 If you find this project useful for your research and applications, please cite using this BibTeX:
 ```bibtex
-@misc{chu2025sft,
+@misc{chu2025sftmemorizesrlgeneralizes,
       title={SFT Memorizes, RL Generalizes: A Comparative Study of Foundation Model Post-training}, 
-      author={Tianzhe Chu, Yuexiang Zhai, Jihan Yang, Shengbang Tong, Saining Xie, Dale Schuurmans, Quoc V. Le, Sergey Levine, Yi Ma},
+      author={Tianzhe Chu and Yuexiang Zhai and Jihan Yang and Shengbang Tong and Saining Xie and Dale Schuurmans and Quoc V. Le and Sergey Levine and Yi Ma},
       year={2025},
-      eprint={TBD},
+      eprint={2501.17161},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2501.17161}, 
 }
 ```
 

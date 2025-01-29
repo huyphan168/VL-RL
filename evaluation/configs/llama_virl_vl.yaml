@@ -58,9 +58,9 @@ env_config:
       ENABLED: True
       ENABLE_SAVE_PANO: True
       # for get street view
-      PANORAMA_DIR: "" # /data/projects/VIRL_internal/output/snapshot/vln/all_panos
+      PANORAMA_DIR: "" 
       # for relocating points to panorama id
-      GPS_TO_PANO_PATH: "" # /data/projects/VIRL_internal/output/snapshot/vln/gps_pano_mapping.pkl
+      GPS_TO_PANO_PATH: "" 
       # If the distance between two points is less than this value, 
       # they are considered the same point.
       # Otherwise, will call the online method.

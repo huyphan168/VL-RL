@@ -46,6 +46,3 @@ DS_SKIP_CUDA_CHECK=1 accelerate launch \
     --env_config.verify_iter=${VITER} \
     --env_config.absolute_action=${ABS} \
     --num_traj=${NUM_TRAJ}
-
-
-python -m logs_json.json_summarizer -i ${OUTPUT_FOLDER} -o ${OUTPUT_FOLDER}.jsonl
