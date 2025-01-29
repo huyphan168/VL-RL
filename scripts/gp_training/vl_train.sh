@@ -11,12 +11,7 @@
 #SBATCH --gpus-per-node=8   
 #SBATCH --output=./slurm_logs/train_%A_%a.out
 #SBATCH --output=./slurm_logs/train_%A_%a.err
-#SBATCH --partition=High
-
-# optional
-export HF_ENDPOINT=https://hf-mirror.com
-
-export PYTHONPATH=src:$PYTHONPATH
+#SBATCH --partition=gpu
 
 LR=1e-6
 save_every=1

@@ -11,8 +11,7 @@
 #SBATCH --gpus-per-node=8   
 #SBATCH --output=./slurm_logs/train_%A_%a.out
 #SBATCH --output=./slurm_logs/train_%A_%a.err
-#SBATCH --partition=High
-
+#SBATCH --partition=gpu
 
 LR=1e-7
 save_every=1

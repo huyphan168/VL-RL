@@ -6,13 +6,12 @@
 #SBATCH --nodes=1                                 # Total number of nodes requested
 #SBATCH --ntasks-per-node=8                      # Total number of task requested
 #SBATCH --cpus-per-task=8                        # Total number of cores requested
-#SBATCH --mem=512G
+#SBATCH --mem=1000G
 #SBATCH --time=96:00:00                     # Time limit (hh:mm:ss)
 #SBATCH --gpus-per-node=8   
 #SBATCH --output=./slurm_logs/train_%A_%a.out
 #SBATCH --output=./slurm_logs/train_%A_%a.err
-#SBATCH --partition=High
-
+#SBATCH --partition=gpu
 
 LR=1e-6
 save_every=1

@@ -13,11 +13,6 @@
 #SBATCH --output=./slurm_logs/train_%A_%a.err
 #SBATCH --partition=gpu
 
-# optional
-export HF_ENDPOINT=https://hf-mirror.com
-
-export PYTHONPATH=src:$PYTHONPATH
-
 LR=1e-6
 save_every=1
 save_model=False # disable running saving. one checkpoint ~30GB

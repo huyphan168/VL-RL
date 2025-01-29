@@ -13,11 +13,6 @@
 #SBATCH --output=./slurm_logs/python_array_%A_%a.err
 #SBATCH --partition=gpu
 
-export HF_ENDPOINT=https://hf-mirror.com
-
-export PYTHONPATH=src:$PYTHONPATH
-
-
 VITER=2
 
 # enable verification
