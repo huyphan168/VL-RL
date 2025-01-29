@@ -85,7 +85,7 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
      - With vision: <code>bash scripts/gp_training/vl_train.sh</code>
      - Edit training configs either in shell scripts or <code>rl/configs/llama_gp_*.yaml</code>
    - For V-IRL, please do the following steps:
-     - First, download data from [here](tianzhechu/SFTvsRL_Data).
+     - First, download data from [here](https://huggingface.co/datasets/tianzhechu/SFTvsRL_Data).
      - Then, specify paths in training shell scripts
        - <code>--env_config.platform_cfg.OFFLINE.PANORAMA_DIR=YOUR_PATH/nyc_streetviews</code>
        - <code>--env_config.platform_cfg.OFFLINE.GPS_TO_PANO_PATH=YOUR_PATH/nyc.pkl</code>
