@@ -78,6 +78,7 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
 1. Install packages and prepare the initial checkpoints (optional).
    - Check [here](https://huggingface.co/collections/tianzhechu/sftvsrl-models-and-data-6797ba6de522c7de7fcb80ba) to download initial checkpoints for all 4 training experiments.
    - You may train your own initial checkpoints. We will release data and SFT scripts soon.
+   - We use [Llama-3.2-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct) for all our experiments. Other models might not need SFT initialization and welcome to explore~
 2. Launch RL experiments (PPO).
    - For GeneralPoints, please use execute the following scripts:
      - Language only: <code>bash scripts/gp_training/language_train.sh</code>
