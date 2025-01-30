@@ -9,7 +9,7 @@
 
 
 
-<a href="https://arxiv.org/abs/2406.16860" target="_blank">
+<a href="https://arxiv.org/abs/2501.17161v1" target="_blank">
     <img alt="arXiv" src="https://img.shields.io/badge/arXiv-SFT vs RL-red?logo=arxiv" height="25" />
 </a>
 <a href="https://tianzhechu.com/SFTvsRL/" target="_blank">
@@ -87,18 +87,18 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
    - For V-IRL, please do the following steps:
      - First, download data from [here](https://huggingface.co/datasets/tianzhechu/SFTvsRL_Data).
      - Then, specify paths in training shell scripts
-       - <code>--env_config.platform_cfg.OFFLINE.PANORAMA_DIR=YOUR_PATH/nyc_streetviews</code>
-       - <code>--env_config.platform_cfg.OFFLINE.GPS_TO_PANO_PATH=YOUR_PATH/nyc.pkl</code>
-       - <code>--env_config.route_info_path=YOUR_PATH/nyc_routes</code>
+       - <code>--env_config.platform_cfg.OFFLINE.PANORAMA_DIR=YOUR_PATH/nyc_1k_routes/street_views/</code>
+       - <code>--env_config.platform_cfg.OFFLINE.GPS_TO_PANO_PATH=YOUR_PATH/nyc_1k_routes/gps_pano_mapping.pkl</code>
+       - <code>--env_config.route_info_path=YOUR_PATH/nyc_1k_routes/route_infos.json</code>
      - Finally, start training
        - Language only: <code>bash scripts/virl_training/language_train.sh</code>
        - With vision: <code>bash scripts/virl_training/vl_train.sh</code>
 3. Evaluate RL checkpoints after training.
-  - We have a series of evaluation scripts:
-    - <code>scripts/gp_evaluation/*.sh</code>: evaluate GeneralPoints
-    - <code>scripts/virl_evaluation/*.sh</code>: evaluate V-IRL
-    - <code>scripts/recog_evaluation/*.sh</code>: evaluate GeneralPoints recognition
-  - Please modify <code>CKPT_NAME</code> in these shell scripts.
+    - We have a series of evaluation scripts:
+      - <code>scripts/gp_evaluation/*.sh</code>: evaluate GeneralPoints
+      - <code>scripts/virl_evaluation/*.sh</code>: evaluate V-IRL
+      - <code>scripts/recog_evaluation/*.sh</code>: evaluate GeneralPoints recognition
+    - Please modify <code>CKPT_NAME</code> in these shell scripts.
 
 ## Citation
 
