@@ -87,12 +87,13 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
    - For V-IRL, please do the following steps:
      - First, download data from [here](https://huggingface.co/datasets/tianzhechu/SFTvsRL_Data).
      - Then, specify paths in training shell scripts
-       - <code>--env_config.platform_cfg.OFFLINE.PANORAMA_DIR=YOUR_PATH/nyc_1k_routes/street_views/</code>
-       - <code>--env_config.platform_cfg.OFFLINE.GPS_TO_PANO_PATH=YOUR_PATH/nyc_1k_routes/gps_pano_mapping.pkl</code>
-       - <code>--env_config.route_info_path=YOUR_PATH/nyc_1k_routes/route_infos.json</code>
+       - <code>STREETVIEWS=YOUR_PATH/nyc_1k_routes/street_views/</code>
+       - <code>GPS_TO_PANO=YOUR_PATH/nyc_1k_routes/gps_pano_mapping.pkl</code>
+       - <code>ROUTE_INFO=YOUR_PATH/nyc_1k_routes/route_infos.json</code>
      - Finally, start training
        - Language only: <code>bash scripts/virl_training/language_train.sh</code>
        - With vision: <code>bash scripts/virl_training/vl_train.sh</code>
+       - Edit training configs either in shell scripts or <code>rl/configs/llama_virl_*.yaml</code>
 3. Evaluate RL checkpoints after training.
     - We have a series of evaluation scripts:
       - <code>scripts/gp_evaluation/*.sh</code>: evaluate GeneralPoints
@@ -100,6 +101,7 @@ It's optional to download these checkpoints via huggingface CLI. You may directl
       - <code>scripts/recog_evaluation/*.sh</code>: evaluate GeneralPoints recognition
     - Please modify <code>CKPT_NAME</code> in these shell scripts.
 
+\*\* Note that our shell scripts support slurm clusters if launched via <code>sbatch scripts/*/*.sh</code>. Reproducing our training experiments require a node of 8 gpus with memory of 80GB each. 
 ## Citation
 
 If you find this project useful for your research and applications, please cite using this BibTeX:
