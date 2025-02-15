@@ -18,15 +18,15 @@ class VLMValue(nn.Module):
     def __init__(self, base):
         super(VLMValue, self).__init__()
         self.base = base
-        # hard-code value head
-        # self.value_head = nn.Linear(4096, 1, bias=True).to(base.device, dtype=torch.float16)
+        # Dynamically determine hidden size from the base model's configuration.
+        hidden_dim = getattr(self.base.config, "hidden_size", 4096)
         self.value_head = nn.Sequential(
-            nn.Linear(4096, 1024), # First layer
-            nn.ReLU(), # Non-linearity
-            nn.Linear(1024, 512), # Second layer
-            nn.ReLU(), # Non-linearity
-            nn.Linear(512, 1) # Output layer
-            ).to(base.device, dtype=torch.bfloat16) # Move to specified device with dtype
+            nn.Linear(hidden_dim, 1024),  # First layer
+            nn.ReLU(),                   # Non-linearity
+            nn.Linear(1024, 512),        # Second layer
+            nn.ReLU(),                   # Non-linearity
+            nn.Linear(512, 1)            # Output layer
+        ).to(base.device, dtype=torch.bfloat16)
 
     def forward(self,  inputs):
         """
@@ -220,14 +220,20 @@ class VLMPolicy(nn.Module):
                 if 'formula' in dic.keys():
                     target = torch.cat((list(map_dict[i-1].values())[0], list(map_dict[i].values())[0], list(map_dict[i+1].values())[0]), dim=0).flatten()
                 elif 'action' in dic.keys():
-                    target = torch.tensor([330, 1335, 794]).to(self.base.device)
+                    if hasattr(self.base.config, "model_type") and self.base.config.model_type.lower() == "qwen2_5_vl":
+                        target = torch.tensor([330, 1311, 788])
+                    else:
+                        target = torch.tensor([330, 1335, 794]).to(self.base.device)
                     break
                     # print(target)
             assert target
            
         except:
-            target = torch.tensor([330,60599,794]).to(self.base.device)
-        # print("target:", target)
+            if hasattr(self.base.config, "model_type") and self.base.config.model_type.lower() == "qwen2_5_vl":
+                target = torch.tensor([330, 59499, 788]).to(self.base.device)
+            else:
+                target = torch.tensor([330, 60599, 794]).to(self.base.device)
+        
         target = target.to(self.base.device)
         # assert False, "Debug action"
         # target = torch.tensor([29908,2467,1115]).to(base.device)

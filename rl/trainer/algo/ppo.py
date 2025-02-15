@@ -54,7 +54,7 @@ class PPO():
         for e in range(self.ppo_epoch):
             data_generator = rollouts.feed_forward_generator(
                     advantages, self.mini_batch_size)
-            pbar = progress_bar(rollouts.num_steps, f"PPO Training Epoch {e}/{self.ppo_epoch}", "green", self.accelerator)
+            pbar = progress_bar(rollouts.num_steps // self.mini_batch_size, f"PPO Training Epoch {e}/{self.ppo_epoch}", "green", self.accelerator)
             for sample in data_generator:
                 with self.accelerator.accumulate(self.actor_critic):
                     grad_step += 1

@@ -39,3 +39,4 @@ shapely
 ipdb
 pandas
 gradio_client
+liger-kernel
