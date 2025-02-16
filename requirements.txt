@@ -1,6 +1,6 @@
 torch
-transformers
-deepspeed==0.15.1
+git+https://github.com/huggingface/transformers
+deepspeed==0.15.4
 tqdm
 python-box
 accelerate
@@ -40,3 +40,4 @@ ipdb
 pandas
 gradio_client
 liger-kernel
+vllm

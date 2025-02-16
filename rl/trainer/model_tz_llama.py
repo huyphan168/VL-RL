@@ -68,10 +68,11 @@ class VLMPolicy(nn.Module):
         self.token_cnt += inputs['input_ids'].shape[1]
         with torch.no_grad():
             outputs = self.base.generate(
-            **inputs, max_new_tokens=self.max_new_tokens, temperature=self.temperature, 
-            output_scores=True,
-            output_hidden_states=True,
-            return_dict_in_generate=True,
+                **inputs, max_new_tokens=self.max_new_tokens, temperature=self.temperature, 
+                output_scores=True,
+                output_hidden_states=True,
+                return_dict_in_generate=True,
+                repetition_penalty=1.15,
             # pad_token_id=self.tokenizer.eos_token_id
             )
             output_ids = outputs['sequences'][:, inputs['input_ids'].shape[1]:]
@@ -154,8 +155,6 @@ class VLMPolicy(nn.Module):
         cated_io = kwargs['input_ids']
         input_ids = io_pair[0]
         output_ids = cated_io[:, input_ids.shape[1]:]
-
-
         outputs= self.base(
             output_hidden_states = True,
             **kwargs

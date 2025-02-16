@@ -16,6 +16,7 @@ from accelerate.state import AcceleratorState
 from utils_mllm import evaluate_model_config
 from utils_general import progress_bar, re_match
 import os
+from qwen_vl_utils import process_vision_info
 
 from PIL import Image
 
@@ -122,8 +123,16 @@ class QwenTrainer(BaseTrainer):
                     obs = Image.fromarray(obs)
                 for prompt, pattern in zip(prompts, patterns):
                     self.formulate_prompt(vision_res_dict, language_res_dict, prompt=prompt, obs=obs, info=info)
-                    input_text = self.processor.apply_chat_template(self.payload, add_generation_prompt=True)
-                    inputs = self.processor(obs, input_text, return_tensors="pt", add_special_tokens=False).to(self.model.device)
+                    input_text = self.processor.apply_chat_template(self.payload, tokenize=False, add_generation_prompt=True)
+                    
+                    image_inputs, video_inputs = process_vision_info(self.payload)
+                    inputs = self.processor(
+                        text=[input_text],
+                        images=image_inputs,
+                        videos=video_inputs,
+                        return_tensors="pt",
+                    ).to(self.model.device)
+                    
                     values, io_dict, output_text, action_log_prob, action_tokens_log_prob = self.actor_critic.act_oneline(inputs, obs)
                     self.append_intermidiate_res(output_text)
             current_formula = re_match(output_text, 'formula')

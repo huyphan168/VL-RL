@@ -13,7 +13,7 @@
 #SBATCH --output=./slurm_logs/train_%A_%a.err
 #SBATCH --partition=gpu
 
-LR=1e-6
+# LR=1e-6
 save_every=1
 save_model=False # disable running saving. one checkpoint ~30GB
 
@@ -25,14 +25,13 @@ DS_SKIP_CUDA_CHECK=1 TOKENIZERS_PARALLELISM=false accelerate launch \
     --main_process_port ${PORT} -m rl.launcher \
     -f rl/configs/llama_gp_vl_liger.yaml \
     --output_dir=train_ckpt/gp_vl/ \
-    --optimizer_config.init_lr=${LR} \
     --optimizer_config.lr_max_steps=100 \
     --prompt_config.enable_verification=True \
     --num_updates=20 \
     --env_config.treat_face_cards_as_10=True \
     --env_config.face_cards_color=black \
     --run_name=gp_vl_training \
-    --num_steps=64 \
     --save_ckpt=${save_model} \
-    --save_every=${save_every}
+    --save_every=${save_every} \
+    # --optimizer_config.init_lr=${LR} \
     # --model_path=${CKPT_NAME} \
